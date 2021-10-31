@@ -1,0 +1,22 @@
+<%-include('./partials/header')%>
+<%-include('./partials/navSearch')%>
+
+<div class="container p-2 d-flex flex-column align-items-center">
+    <!-- <%coupons.reverse()%> -->
+    <%coupons.forEach(coupon=>{%>
+    <div class="card border-dark   mb-3" style="width: 100%;background-color: #FFFF8D;">
+        <div class="card-header bg-warning d-flex justify-content-between">
+            <%= coupon.address %>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <a href="/edit/<%=coupon._id%>" class="btn-sm btn-primary text-decoration-none ">edytuj</a>
+                <a href="/delete/<%=coupon._id%>" class="btn-sm btn-danger text-decoration-none">usuń</a>
+            </div>
+        </div>
+        <div class="card-body text-dark">
+            <p class="card-text"><%= coupon.desc %></p>
+        </div>
+    </div>
+    <%})%>
+
+</div>
+<%-include('./partials/footer')%>
